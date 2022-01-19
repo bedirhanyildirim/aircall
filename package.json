@@ -1,19 +1,22 @@
 {
-  "name": "frontend-hiring-challenge",
-  "version": "1.0.0",
-  "description": "Leap test",
+  "name": "aircall",
+  "version": "1.0.1",
+  "description": "Frontend coding challenge for Speer Technologies",
   "main": "index.js",
-  "repository": "",
-  "author": "",
-  "license": "",
+  "repository": "bedirhanyildirim/aircall",
+  "author": "Bedirhan Yildirim",
   "private": false,
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production"
   },
   "dependencies": {
+    "axios": "^0.25.0",
     "react": "^16.3.1",
-    "react-dom": "^16.3.1"
+    "react-dom": "^16.3.1",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.2.1",
+    "redux": "^4.1.2"
   },
   "devDependencies": {
     "babel-core": "6.26.*",
