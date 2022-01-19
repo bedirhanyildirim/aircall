@@ -1,0 +1,17 @@
+footer {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    padding: 16px 0;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+footer h5 {
+    margin: 0;
+    padding: 0;
+}
