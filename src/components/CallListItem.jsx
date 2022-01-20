@@ -1,5 +1,5 @@
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { archiveCall } from "../redux/actions";
 import { Link } from "react-router-dom";
 
@@ -53,7 +53,6 @@ const CallListItem = () => {
                                 <span className="direction">{getDirection(direction, call_type)} {getDate(created_at)}</span>
                                 <span className="via">{via}</span>
                             </div>
-                            <span>{is_archived.toString()}</span>
                             <span className="archive material-icons-outlined" onClick={(e) => {e.preventDefault(); archiveCallOnClick(call)}}>archive</span>
                             <span className="call material-icons-outlined">call</span>
                         </div>
