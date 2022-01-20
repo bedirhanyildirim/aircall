@@ -14,7 +14,7 @@ function App() {
           <BrowserRouter>
               <Routes>
                   <Route path="/" element={<CallList/>}/>
-                  <Route path="/call" element={<CallDetails/>}/>
+                  <Route path="/call/:id" element={<CallDetails/>}/>
               </Routes>
           </BrowserRouter>
       </div>
