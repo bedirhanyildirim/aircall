@@ -1,9 +1,9 @@
 import React from "react";
-import {useSelector} from "react-redux";
-import {Link} from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const CallListItem = () => {
-    const calls = useSelector((state) => state.allCalls.calls)
+    const calls = useSelector((state) => state.allCalls.calls);
 
     const getCallName = (direction, from, to) => {
         if (direction === 'outbound') {
@@ -29,25 +29,32 @@ const CallListItem = () => {
 
     const getDate = (created_at) => {
         const date = new Date(created_at);
-        return date.getDate() + '.' + (date.getMonth()+1) + '.' + date.getFullYear();
+        return date.getDate() + '.' + ((date.getMonth()+1 < 0) ? ('0' + (date.getMonth()+1)) : date.getMonth()+1) + '.' + date.getFullYear();
+    }
+
+    const archiveCall = (id) => {
+        console.log("call archived", id);
     }
 
     const renderList = calls.map((call) => {
         const {id, direction, is_archived, call_type, created_at, from, to, via, duration} = call;
         return (
-            <Link to={`/call/${id}`} key={id}>
-                <div className="call_list_item">
-                    <div className="pp">
-                        <span className="material-icons-outlined">account_circle</span>
+            <div key={id}>
+                <Link to={'/call/' + id}>
+                    <div className="call_list_item">
+                        <div className="pp">
+                            <span className="material-icons-outlined">account_circle</span>
+                        </div>
+                        <div className="info">
+                            <span className="name">{getCallName(direction, from, to)}</span>
+                            <span className="direction">{getDirection(direction, call_type)} {getDate(created_at)}</span>
+                            <span className="via">{via}</span>
+                        </div>
+                        <span className="archive material-icons-outlined" onClick={(e) => {e.preventDefault(); archiveCall(id)}}>archive</span>
+                        <span className="call material-icons-outlined">call</span>
                     </div>
-                    <div className="info">
-                        <span className="name">{getCallName(direction, from, to)}</span>
-                        <span className="direction">{getDirection(direction, call_type)} {getDate(created_at)}</span>
-                        <span className="via">{via}</span>
-                    </div>
-                    <span className="call material-icons-outlined">call</span>
-                </div>
-            </Link>
+                </Link>
+            </div>
         )
     })
 

@@ -12,13 +12,20 @@ const CallList = () => {
         dispatch(setCalls(response));
     }
 
+    const archiveAll = () => {
+        console.log('All calls are archived!');
+    }
+
     useEffect(() => {
         fetchCalls();
     }, []);
 
     return (
     <div id="call_list">
-      <CallListItem />
+        <CallListItem />
+        <div className="archiveAll" onClick={archiveAll}>
+            <span>Archive all calls</span>
+        </div>
     </div>
   );
 };
