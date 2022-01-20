@@ -1,26 +1,80 @@
 #app {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  left: 0;
   top: 0;
+  left: 0;
   right: 0;
   bottom: 0;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
 }
 
 #app .container {
+  z-index: 100;
   width: 376px;
   height: 666px;
-  z-index: 100;
-  position: relative;
-
   background: white;
   border-radius: 3px;
+  position: relative;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, .9);
 }
 
 #app .container-view {
-  padding: 20px;
 }
 
+#app #call_list {
+}
+#app #call_list a{
+  text-decoration: none;
+}
+
+#app #call_list .call_list_item {
+  display: flex;
+  margin: 8px 0;
+  color: #232323;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-style: normal;
+  align-items: center;
+  flex-direction: row;
+  transition: all 500ms ease;
+  justify-content: flex-start;
+}
+#app #call_list .call_list_item:hover {
+  background: #f1f1f1;
+}
+#app #call_list .call_list_item .pp {
+  margin-bottom: auto;
+  margin-right: 8px;
+}
+#app #call_list .call_list_item .pp .material-icons-outlined {
+  font-size: 40px;
+}
+#app #call_list .call_list_item .info {
+  display: flex;
+  flex-direction: column;
+}
+#app #call_list .call_list_item .info .name {
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+#app #call_list .call_list_item .info .direction {
+  display: flex;
+  color: #232323;
+  font-size: 12px;
+  margin: 4px 0 6px;
+  align-items: center;
+}
+#app #call_list .call_list_item .info .direction .material-icons{
+  font-size: 12px;
+  margin-right: 8px;
+}
+#app #call_list .call_list_item .info .via {
+  color: rgb(42, 196, 32);;
+  font-size: 10px;
+}
+#app #call_list .call_list_item .call {
+  color: #232323;
+  font-size: 24px;
+  margin-left: auto;
+}
