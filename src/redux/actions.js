@@ -7,6 +7,13 @@ export const setCalls = (calls) => {
   }
 }
 
+export const arthiveAll = (calls) => {
+    return {
+        type: ActionTypes.ARCHIVE_ALL,
+        payload: calls
+    }
+}
+
 export const selectedCall = (call) => {
   return {
       type: ActionTypes.SELECTED_CALL,

@@ -37,25 +37,28 @@ const CallListItem = () => {
     }
 
     const renderList = calls.map((call) => {
-        const {id, direction, is_archived, call_type, created_at, from, to, via, duration} = call;
-        return (
-            <div key={id}>
-                <Link to={'/call/' + id}>
-                    <div className="call_list_item">
-                        <div className="pp">
-                            <span className="material-icons-outlined">account_circle</span>
+        if (call.is_archived === false) {
+            const {id, direction, is_archived, call_type, created_at, from, to, via, duration} = call;
+            return (
+                <div key={id}>
+                    <Link to={'/call/' + id}>
+                        <div className="call_list_item">
+                            <div className="pp">
+                                <span className="material-icons-outlined">account_circle</span>
+                            </div>
+                            <div className="info">
+                                <span className="name">{getCallName(direction, from, to)}</span>
+                                <span className="direction">{getDirection(direction, call_type)} {getDate(created_at)}</span>
+                                <span className="via">{via}</span>
+                            </div>
+                            <span>{is_archived.toString()}</span>
+                            <span className="archive material-icons-outlined" onClick={(e) => {e.preventDefault(); archiveCall(id)}}>archive</span>
+                            <span className="call material-icons-outlined">call</span>
                         </div>
-                        <div className="info">
-                            <span className="name">{getCallName(direction, from, to)}</span>
-                            <span className="direction">{getDirection(direction, call_type)} {getDate(created_at)}</span>
-                            <span className="via">{via}</span>
-                        </div>
-                        <span className="archive material-icons-outlined" onClick={(e) => {e.preventDefault(); archiveCall(id)}}>archive</span>
-                        <span className="call material-icons-outlined">call</span>
-                    </div>
-                </Link>
-            </div>
-        )
+                    </Link>
+                </div>
+            )
+        }
     })
 
 
