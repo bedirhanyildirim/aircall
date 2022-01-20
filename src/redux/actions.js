@@ -7,10 +7,17 @@ export const setCalls = (calls) => {
   }
 }
 
-export const arthiveAll = (calls) => {
+export const archiveAllCalls = (calls) => {
     return {
         type: ActionTypes.ARCHIVE_ALL,
         payload: calls
+    }
+}
+
+export const archiveCall = (call) => {
+    return {
+        type: ActionTypes.ARCHIVE_CALL,
+        payload: call
     }
 }
 

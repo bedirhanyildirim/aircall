@@ -1,9 +1,11 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import { archiveCall } from "../redux/actions";
 import { Link } from "react-router-dom";
 
 const CallListItem = () => {
     const calls = useSelector((state) => state.allCalls.calls);
+    const dispatch = useDispatch();
 
     const getCallName = (direction, from, to) => {
         if (direction === 'outbound') {
@@ -32,8 +34,8 @@ const CallListItem = () => {
         return date.getDate() + '.' + ((date.getMonth()+1 < 0) ? ('0' + (date.getMonth()+1)) : date.getMonth()+1) + '.' + date.getFullYear();
     }
 
-    const archiveCall = (id) => {
-        console.log("call archived", id);
+    const archiveCallOnClick = (call) => {
+        dispatch(archiveCall(call));
     }
 
     const renderList = calls.map((call) => {
@@ -52,7 +54,7 @@ const CallListItem = () => {
                                 <span className="via">{via}</span>
                             </div>
                             <span>{is_archived.toString()}</span>
-                            <span className="archive material-icons-outlined" onClick={(e) => {e.preventDefault(); archiveCall(id)}}>archive</span>
+                            <span className="archive material-icons-outlined" onClick={(e) => {e.preventDefault(); archiveCallOnClick(call)}}>archive</span>
                             <span className="call material-icons-outlined">call</span>
                         </div>
                     </Link>

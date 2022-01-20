@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux";
 import { getAllCalls } from "../services";
-import { setCalls, arthiveAll } from "../redux/actions";
+import { setCalls, archiveAllCalls } from "../redux/actions";
 import CallListItem from "./CallListItem.jsx";
 
 const CallList = () => {
@@ -18,7 +18,7 @@ const CallList = () => {
         archivedCalls.forEach(call => {
             call.is_archived = true;
         });
-        dispatch(arthiveAll(archivedCalls));
+        dispatch(archiveAllCalls(archivedCalls));
     }
 
     useEffect(() => {
