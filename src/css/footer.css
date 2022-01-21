@@ -7,11 +7,13 @@ footer {
     padding: 16px 0;
     position: absolute;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-footer h5 {
-    margin: 0;
-    padding: 0;
+footer a {
+    color: #232323;
+}
+footer a.selected {
+    color: rgb(42, 196, 32);
 }

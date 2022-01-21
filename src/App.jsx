@@ -7,20 +7,20 @@ import CallList from "./components/CallList.jsx";
 import CallDetails from "./components/CallDetails.jsx";
 
 function App() {
-  return (
-    <div className="container">
-      <Header/>
-      <div className="container-view">
-          <BrowserRouter>
-              <Routes>
-                  <Route path="/" element={<CallList/>}/>
-                  <Route path="/call/:id" element={<CallDetails/>}/>
-              </Routes>
-          </BrowserRouter>
-      </div>
-      <Footer/>
-    </div>
-  );
+    return (
+        <div className="container">
+            <BrowserRouter>
+                <Header/>
+                    <div className="container-view">
+                        <Routes>
+                            <Route path="/" element={<CallList/>}/>
+                            <Route path="/call/:id" element={<CallDetails/>}/>
+                        </Routes>
+                    </div>
+                <Footer/>
+            </BrowserRouter>
+        </div>
+    );
 }
 
 export default App;
