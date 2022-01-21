@@ -5,6 +5,7 @@ import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import CallList from "./components/CallList.jsx";
 import CallDetails from "./components/CallDetails.jsx";
+import Archives from "./components/Archives.jsx";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                         <Routes>
                             <Route path="/" element={<CallList/>}/>
                             <Route path="/call/:id" element={<CallDetails/>}/>
+                            <Route path="/archives" element={<Archives/>}/>
                         </Routes>
                     </div>
                 <Footer/>
