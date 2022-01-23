@@ -1,7 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { archiveCall } from "../redux/actions";
+import { archiveCall, unArchiveCall } from "../redux/actions";
 import { Link } from "react-router-dom";
+import {setCallArchived} from "../services";
 
 const CallListItem = (props) => {
     const calls = useSelector((state) => state.allCalls.calls);
@@ -36,7 +37,17 @@ const CallListItem = (props) => {
     }
 
     const archiveCallOnClick = (call) => {
+        setCallArchived(call.id, {
+            is_archived: true
+        })
         dispatch(archiveCall(call));
+    }
+
+    const unArchiveCallOnClick = (call) => {
+        setCallArchived(call.id, {
+            is_archived: false
+        })
+        dispatch(unArchiveCall(call));
     }
 
     const renderList = () => {
@@ -84,7 +95,7 @@ const CallListItem = (props) => {
                         <span className="direction">{getDirection(direction, call_type)} {getDate(created_at)}</span>
                         <span className="via">{via}</span>
                     </div>
-                    <span className="archive material-icons-outlined" onClick={(e) => {e.preventDefault(); archiveCallOnClick(call)}}>unarchive</span>
+                    <span className="archive material-icons-outlined" onClick={(e) => {e.preventDefault(); unArchiveCallOnClick(call)}}>unarchive</span>
                 </div>
             </div>
         )

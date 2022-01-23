@@ -27,8 +27,22 @@ const callReducer = (state = initialState, {type, payload}) => {
       }
       const arcCall = Object.assign({}, payload, {is_archived: true});
       return { ...state, calls: newCalls, archivedCalls: state.archivedCalls.concat(arcCall)}
+    case ActionTypes.UN_ARCHIVE_CALL:
+      let newArchivedCalls = [...state.archivedCalls];
+      if (newArchivedCalls.length > 1) {
+        const index = newArchivedCalls.indexOf(payload);
+        if (index > -1) {
+          newArchivedCalls.splice(index, 1);
+        }
+      } else {
+        newArchivedCalls = [];
+      }
+      const unArcCall = Object.assign({}, payload, {is_archived: false});
+      return { ...state, calls: state.calls.concat(unArcCall), archivedCalls: newArchivedCalls}
     case ActionTypes.SELECT_CALL:
       return { ...state, selectedCall: payload};
+    case ActionTypes.REST_CALLS:
+      return { ...state, calls: state.calls.concat(payload), archivedCalls: []}
     default:
       return state;
   }

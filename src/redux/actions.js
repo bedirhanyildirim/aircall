@@ -28,9 +28,23 @@ export const archiveCall = (call) => {
     }
 }
 
+export const unArchiveCall = (call) => {
+    return {
+        type: ActionTypes.UN_ARCHIVE_CALL,
+        payload: call
+    }
+}
+
 export const setCall = (call) => {
   return {
       type: ActionTypes.SELECT_CALL,
       payload: call
   }
+}
+
+export const resetCalls = (calls) => {
+    return {
+        type: ActionTypes.REST_CALLS,
+        payload: calls
+    }
 }

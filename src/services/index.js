@@ -11,3 +11,15 @@ export async function getCall(id) {
         .catch(console.log)
         .then(res => res.data)
 }
+
+export async function setCallArchived(id, payload) {
+    return await axios.post("https://aircall-job.herokuapp.com/activities/" + id, payload)
+        .catch(console.log)
+        .then(res => res.data)
+}
+
+export async function resetAllCalls() {
+    return await axios.get("https://aircall-job.herokuapp.com/reset")
+        .catch(console.log)
+        .then(res => res.data)
+}

@@ -23,14 +23,6 @@ const CallList = () => {
         dispatch(setArchivedCalls(archived));
     }
 
-    const archiveAll = () => {
-        const archivedCalls = [...calls];
-        archivedCalls.forEach(call => {
-            call.is_archived = true;
-        });
-        dispatch(archiveAllCalls(archivedCalls));
-    }
-
     useEffect(() => {
         fetchCalls();
     }, []);
@@ -39,8 +31,8 @@ const CallList = () => {
     <div id="call_list">
         <CallListItem type="inbox" />
         {calls.length > 0 ? (
-            <div className="archiveAll" onClick={archiveAll}>
-                <span>Archive all calls ({calls.length})</span>
+            <div className="archiveAll">
+                <span>Inbox ({calls.length})</span>
             </div>
         ) : (
             <div className="archiveAll">
