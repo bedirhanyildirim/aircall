@@ -10,7 +10,7 @@ import Archives from "./components/Archives.jsx";
 function App() {
     return (
         <div className="container">
-            <BrowserRouter>
+            <BrowserRouter basename="/">
                 <Header/>
                     <div className="container-view">
                         <Routes>

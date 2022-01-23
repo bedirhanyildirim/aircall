@@ -20,6 +20,8 @@
 }
 
 #app .container-view {
+  height: 527px;
+  overflow: auto;
 }
 
 #app #call_list {
