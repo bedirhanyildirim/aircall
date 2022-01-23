@@ -7,6 +7,13 @@ export const setCalls = (calls) => {
   }
 }
 
+export const setArchivedCalls = (calls) => {
+    return {
+        type: ActionTypes.SET_ARCHIVED_CALLS,
+        payload: calls
+    }
+}
+
 export const archiveAllCalls = (calls) => {
     return {
         type: ActionTypes.ARCHIVE_ALL,

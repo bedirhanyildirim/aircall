@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { archiveCall } from "../redux/actions";
 import { Link } from "react-router-dom";
 
-const CallListItem = () => {
+const CallListItem = (props) => {
     const calls = useSelector((state) => state.allCalls.calls);
+    const archivedCalls = useSelector((state) => state.allCalls.archivedCalls);
     const dispatch = useDispatch();
 
     const getCallName = (direction, from, to) => {
@@ -38,7 +39,15 @@ const CallListItem = () => {
         dispatch(archiveCall(call));
     }
 
-    const renderList = calls.map((call) => {
+    const renderList = () => {
+        if (props.type === "inbox") {
+            return inboxList;
+        } else {
+            return archivedList;
+        }
+    }
+
+    const inboxList = calls.map((call) => {
         if (call.is_archived === false) {
             const {id, direction, is_archived, call_type, created_at, from, to, via, duration} = call;
             return (
@@ -62,9 +71,29 @@ const CallListItem = () => {
         }
     })
 
+    const archivedList = archivedCalls.map((call) => {
+        const {id, direction, is_archived, call_type, created_at, from, to, via, duration} = call;
+        return (
+            <div key={id}>
+                <div className="call_list_item">
+                    <div className="pp">
+                        <span className="material-icons-outlined">account_circle</span>
+                    </div>
+                    <div className="info">
+                        <span className="name">{getCallName(direction, from, to)}</span>
+                        <span className="direction">{getDirection(direction, call_type)} {getDate(created_at)}</span>
+                        <span className="via">{via}</span>
+                    </div>
+                    <span className="archive material-icons-outlined" onClick={(e) => {e.preventDefault(); archiveCallOnClick(call)}}>unarchive</span>
+                </div>
+            </div>
+        )
+    })
 
     return (
-        <div>{renderList}</div>
+        <div>
+            {renderList()}
+        </div>
     );
 };
 

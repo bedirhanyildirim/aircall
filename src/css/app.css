@@ -26,21 +26,21 @@
 
 #app #call_list {
 }
-#app #call_list a{
+#app #call_list a, #app #archives a{
   text-decoration: none;
 }
-#app #call_list .archiveAll{
+#app .archiveAll{
   width: 100%;
   padding: 8px 0;
   cursor: pointer;
   text-align: center;
   transition: all .5s ease;
 }
-#app #call_list .archiveAll:hover{
+#app .archiveAll:hover{
   color: rgb(42, 196, 32);
 }
 
-#app #call_list .call_list_item {
+#app .call_list_item {
   display: flex;
   margin: 8px 0;
   color: #232323;
@@ -52,46 +52,46 @@
   transition: all 500ms ease;
   justify-content: flex-start;
 }
-#app #call_list .call_list_item:hover {
+#app .call_list_item:hover {
   background: #f1f1f1;
 }
-#app #call_list .call_list_item a .pp {
+#app .call_list_item a .pp {
   margin-bottom: auto;
   margin-right: 8px;
 }
-#app #call_list .call_list_item .pp .material-icons-outlined {
+#app .call_list_item .pp .material-icons-outlined {
   font-size: 40px;
 }
-#app #call_list .call_list_item .info {
+#app .call_list_item .info {
   display: flex;
   margin-left: 8px;
   flex-direction: column;
 }
-#app #call_list .call_list_item .info .name {
+#app .call_list_item .info .name {
   font-size: 14px;
   margin-bottom: 2px;
 }
-#app #call_list .call_list_item .info .direction {
+#app .call_list_item .info .direction {
   display: flex;
   color: #232323;
   font-size: 12px;
   align-items: center;
   margin: 4px 0 6px 2px;
 }
-#app #call_list .call_list_item .info .direction .material-icons{
+#app .call_list_item .info .direction .material-icons{
   font-size: 12px;
   margin-right: 8px;
 }
-#app #call_list .call_list_item .info .via {
+#app .call_list_item .info .via {
   color: rgb(42, 196, 32);
   font-size: 10px;
 }
-#app #call_list .call_list_item .call {
+#app .call_list_item .call {
   color: #232323;
   font-size: 24px;
   margin-left: 24px;
 }
-#app #call_list .call_list_item .archive {
+#app .call_list_item .archive {
   color: #232323;
   font-size: 24px;
   margin-left: auto;

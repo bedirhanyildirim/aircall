@@ -11,6 +11,8 @@ const callReducer = (state = initialState, {type, payload}) => {
   switch (type) {
     case ActionTypes.SET_CALLS:
       return { ...state, calls: payload};
+    case ActionTypes.SET_ARCHIVED_CALLS:
+      return { ...state, archivedCalls: payload};
     case ActionTypes.ARCHIVE_ALL:
       return { ...state, calls: [], archivedCalls: state.archivedCalls.concat(payload)}
     case ActionTypes.ARCHIVE_CALL:
