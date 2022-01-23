@@ -25,6 +25,8 @@ const callReducer = (state = initialState, {type, payload}) => {
       }
       const arcCall = Object.assign({}, payload, {is_archived: true});
       return { ...state, calls: newCalls, archivedCalls: state.archivedCalls.concat(arcCall)}
+    case ActionTypes.SELECT_CALL:
+      return { ...state, selectedCall: payload};
     default:
       return state;
   }

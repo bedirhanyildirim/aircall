@@ -21,9 +21,9 @@ export const archiveCall = (call) => {
     }
 }
 
-export const selectedCall = (call) => {
+export const setCall = (call) => {
   return {
-      type: ActionTypes.SELECTED_CALL,
+      type: ActionTypes.SELECT_CALL,
       payload: call
   }
 }
