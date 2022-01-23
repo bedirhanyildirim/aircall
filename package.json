@@ -5,12 +5,13 @@
   "main": "index.js",
   "repository": "bedirhanyildirim/aircall",
   "author": "Bedirhan Yildirim",
-  "license": "MIT",
-  "homepage": {
+  "homepage": "https://bedcodes-aircall.herokuapp.com/",
+  "root": "dist/",
+  "license": {
     "type": "MIT",
     "url": "https://www.opensource.org/licenses/mit-license.php"
   },
-  "private": false,
+  "private": true,
   "scripts": {
     "start": "node app",
     "dev": "webpack-dev-server --mode development --open",
@@ -28,9 +29,14 @@
     "redux": "^4.1.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-stage-0": "^7.8.3",
     "babel-core": "6.26.*",
     "babel-loader": "7.1.*",
-    "babel-preset-env": "1.7.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "6.24.*",
     "css-loader": "2.1.*",
     "html-loader": "0.5.*",
