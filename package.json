@@ -5,6 +5,11 @@
   "main": "index.js",
   "repository": "bedirhanyildirim/aircall",
   "author": "Bedirhan Yildirim",
+  "license": "MIT",
+  "homepage": {
+    "type": "MIT",
+    "url": "https://www.opensource.org/licenses/mit-license.php"
+  },
   "private": false,
   "scripts": {
     "start": "node app",
